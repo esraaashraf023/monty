@@ -49,3 +49,24 @@ int main(int argc, char *argv[])
 	free_and_close(line, file);
 	return (EXIT_SUCCESS);
 }
+/**
+ * is_comment - function that check if the line is comment.
+ *
+ * @line: Pointer
+ *
+ * Return: 0.
+ */
+int is_comment(char *line)
+{
+	int k;
+
+	for (k = 0; line[k] != '\0'; k++)
+	{
+		if (line[k] == '#')
+			return (1);
+		if (line[k] != ' ' && line[k] != '\t')
+			return (0);
+	}
+
+	return (1);
+}

@@ -11,6 +11,7 @@
 void mon_push(stack_t **stack, unsigned int line_number)
 {
 	char *arg = strtok(NULL, " \n\t");
+	stack_t *new_node;
 
 	if (!arg || !isdigit(*arg))
 	{
@@ -18,11 +19,21 @@ void mon_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if (add_node(stack, atoi(arg)) == NULL)
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+
+	new_node->n = atoi(arg);
+	new_node->next = *stack;
+	new_node->prev = NULL;
+
+	if (*stack)
+		(*stack)->prev = new_node;
+
+	*stack = new_node;
 }
 /**
  * _pall - function that pall.

@@ -8,13 +8,13 @@
  *
  * Return: 0
  */
-stack_t *add_node(stack_t **stack, int n)
+void add_node(stack_t **stack, unsigned int n)
 {
 	stack_t *new_node, *last;
 
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
-		return (NULL);
+		return;
 
 	new_node->n = n;
 	new_node->prev = NULL;
@@ -35,5 +35,5 @@ stack_t *add_node(stack_t **stack, int n)
 		new_node->prev = last;
 	}
 
-	return (new_node);
+	last = last->next;
 }
