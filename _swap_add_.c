@@ -18,9 +18,9 @@ void swap(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	k = (*stack)->k;
-	(*stack)->k = (*stack)->next->k;
-	(*stack)->next->k = k;
+	k = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = k;
 }
 
 /**
@@ -41,7 +41,7 @@ void add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	sum = (*stack)->k + (*stack)->next->k;
+	sum = (*stack)->n + (*stack)->next->n;
 	mon_pop(stack, line_number);
-	(*stack)->k = sum;
+	(*stack)->n = sum;
 }

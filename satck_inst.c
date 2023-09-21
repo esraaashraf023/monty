@@ -1,29 +1,28 @@
 #include "monty.h"
 
 /**
- * get_instruction - function that call right function
- * corresponding to an opcode.
+ * get_instruction - ....
  *
  * @opcode: string command.
  *
- * Return: A pointer to the instruction_t struct or NULL.
+ * Return: NULL.
  */
 instruction_t *get_instruction(char *opcode)
 {
 	static instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
+		{"push", mon_push},
+		{"pall", _pall},
+		{"pint", mon_pint},
+		{"pop", mon_pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
-		{"div", div_op},
+		{"div", div_t},
 		{"mul", mul_op},
-		{"mod", mod_op},
+		{"mod", mon_pop},
 		{"pchar", pchar_op},
-		{"pstr", pstr_op},
+		{"pstr", pstr_pop},
 		{NULL, NULL}};
 	int i;
 
