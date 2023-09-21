@@ -15,14 +15,7 @@ instruction_t *get_instruction(char *opcode)
 		{"pint", mon_pint},
 		{"pop", mon_pop},
 		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"sub", sub},
-		{"div", div_t},
-		{"mul", mul_op},
-		{"mod", mon_pop},
-		{"pchar", pchar_op},
-		{"pstr", pstr_pop},
+		{"add", add_node},
 		{NULL, NULL}};
 	int i;
 

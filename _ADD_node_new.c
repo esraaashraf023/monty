@@ -1,36 +1,39 @@
 #include "monty.h"
 
 /**
- * add_node - function that add
+ * add_node - function that adds a new node.
  *
  * @stack: Pointer.
- * @i: value.
+ * @n: Valu.
  *
  * Return: 0
  */
-stack_t *add_node(stack_t  **stack, int i)
+stack_t *add_node(stack_t **stack, int n)
 {
-	stack_t *_new_node;
+	stack_t *new_node, *last;
 
-	_new_node = malloc(sizeof stack_t());
-	if(!_new_node)
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
 		return (NULL);
 
-	_new_node->n = n;
-	_new_node->prev = NULL;
-	_new_node->next = *head;
+	new_node->n = n;
+	new_node->prev = NULL;
+	new_node->next = NULL;
 
-	if (head == NULL)
+	if (*stack == NULL)
 	{
-		*head = new_node;
-		_new_node->next = NULL; //frist add node
+		*stack = new_node;
 	}
-	else // if node unFull
+	else
 	{
-		last = *head;
+		last = *stack;
 
-		while(last->next != NULL)
+		while (last->next != NULL)
 			last = last->next;
-		return (last);
+
+		last->next = new_node;
+		new_node->prev = last;
 	}
+
+	return (new_node);
 }
