@@ -22,6 +22,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	(*stack)->k = (*stack)->next->k;
 	(*stack)->next->k = k;
 }
+
 /**
  * add - function that sums
  *
@@ -30,9 +31,9 @@ void swap(stack_t **stack, unsigned int line_number)
  *
  * Return: void.
  */
-void n_sub(stack_t **stack, unsigned int line_number)
+void add(stack_t **stack, unsigned int line_number)
 {
-	int sm;
+	int sum;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -40,7 +41,7 @@ void n_sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	sm = (*stack)->k + (*stack)->next->k;
+	sum = (*stack)->k + (*stack)->next->k;
 	mon_pop(stack, line_number);
 	(*stack)->k = sum;
 }
